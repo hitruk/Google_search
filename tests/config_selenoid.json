@@ -1,0 +1,7 @@
+{
+  "browserName": "opera",
+  "version": "60.0",
+  "enableVNC": true,
+  "enableVideo": false,
+  "wait_time": 5
+}
