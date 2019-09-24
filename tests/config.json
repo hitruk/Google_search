@@ -1,0 +1,6 @@
+{
+  "browser": "firefox",
+  "version": "68",
+  "wait_time": 10,
+  "command_executor": "192.168.2.14:8080"
+}
