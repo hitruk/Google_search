@@ -48,8 +48,8 @@ def browser(config_browser, config_wait_time):
     driver.close()
 
 
-# ====== selenoid broowser ======
-
+# ====== selenoid browsers ======
+CONFIG_PATH_SELENOID = 'tests/config_selenoid.json'
 URL_SELENOID = "http://192.168.2.14:8080/wd/hub"
 SUPPORTED_BROWSERS_SELENOID = ['chrome', 'firefox', 'opera']
 SUPPORTED_VERSION_SELENOID = ['75.0', '76.0', '67.0', '68.0', '60.0', '62.0']
@@ -66,7 +66,7 @@ SUPPORTED_BROWSERS_VERSION = [
 
 @pytest.fixture(scope='session')
 def config_selenoid():
-    with open('tests/config_selenoid.json', 'r') as config_selenoid_file:
+    with open(CONFIG_PATH_SELENOID, 'r') as config_selenoid_file:
         data_selenoid = json.load(config_selenoid_file)
     return data_selenoid
 
@@ -136,6 +136,7 @@ def config_wait_time(config_selenoid):
 
 @pytest.fixture()
 def browsers_selenoid(capabilities_data, config_wait_time):
+    ''' Browsers selenoid for tests '''
     driver = webdriver.Remote(
         command_executor=URL_SELENOID,
         desired_capabilities=capabilities_data
